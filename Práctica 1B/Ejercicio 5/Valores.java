@@ -3,7 +3,7 @@ package ejercicio5;
 public class Valores {
 	private int maximo;
 	private int minimo;
-	private int promedio;
+	private double promedio;
 	
 	public int getMaximo() {
 		return maximo;
@@ -17,10 +17,10 @@ public class Valores {
 	public void setMinimo(int minimo) {
 		this.minimo = minimo;
 	}
-	public int getPromedio() {
+	public double getPromedio() {
 		return promedio;
 	}
-	public void setPromedio(int promedio) {
+	public void setPromedio(double promedio) {
 		this.promedio = promedio;
 	}
 	
