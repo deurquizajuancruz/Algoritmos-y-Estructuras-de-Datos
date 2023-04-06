@@ -18,8 +18,7 @@ public class RedBinariaLlena {
 				izquierda = retardoReenvio(a.getHijoIzquierdo());
 			if (a.tieneHijoDerecho())
 				derecha = retardoReenvio(a.getHijoDerecho());
-			int max = Math.max(izquierda, derecha);
-			return max + a.getDato();
+			return Math.max(izquierda, derecha) + a.getDato();
 		}
 	}
 }
