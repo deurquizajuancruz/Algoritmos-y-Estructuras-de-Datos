@@ -21,23 +21,23 @@ public class TestArbolGeneral {
 		ArbolGeneral<Integer> tresSeis = new ArbolGeneral<Integer>(41);
 
 		// hijos nodos nivel 2
-		dosUno.getHijos().agregarFinal(tresSeis);
-		dosUno.getHijos().agregarFinal(tresUno);
-		dosUno.getHijos().agregarFinal(tresDos); // nodo 59 hijos: 41,28,33
-		dosDos.getHijos().agregarFinal(tresTres); // nodo 66 hijos:16
-		dosTres.getHijos().agregarFinal(tresCuatro);
-		dosTres.getHijos().agregarFinal(tresCinco); // nodo 12 hijos: 4 17
+		dosUno.agregarHijo(tresSeis);
+		dosUno.agregarHijo(tresUno);
+		dosUno.agregarHijo(tresDos); // nodo 59 hijos: 41,28,33
+		dosDos.agregarHijo(tresTres); // nodo 66 hijos:16
+		dosTres.agregarHijo(tresCuatro);
+		dosTres.agregarHijo(tresCinco); // nodo 12 hijos: 4 17
 
 		// hijos nodos nivel 1
-		unoUno.getHijos().agregarFinal(dosUno);
-		unoUno.getHijos().agregarFinal(dosDos); // nodo 42 hijos: 59 y 66
-		unoDos.getHijos().agregarFinal(dosTres);
-		unoDos.getHijos().agregarFinal(dosCuatro);
-		unoDos.getHijos().agregarFinal(dosCinco); // nodo 31 hijos: 12 77 89
+		unoUno.agregarHijo(dosUno);
+		unoUno.agregarHijo(dosDos); // nodo 42 hijos: 59 y 66
+		unoDos.agregarHijo(dosTres);
+		unoDos.agregarHijo(dosCuatro);
+		unoDos.agregarHijo(dosCinco); // nodo 31 hijos: 12 77 89
 
 		// hijos raiz
-		raiz.getHijos().agregarFinal(unoUno);
-		raiz.getHijos().agregarFinal(unoDos);
+		raiz.agregarHijo(unoUno);
+		raiz.agregarHijo(unoDos);
 
 		System.out.println("La altura de este arbol es de: " + raiz.altura());
 

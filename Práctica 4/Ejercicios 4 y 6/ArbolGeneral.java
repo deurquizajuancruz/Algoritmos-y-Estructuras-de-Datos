@@ -90,7 +90,7 @@ public class ArbolGeneral<T> {
 		ColaGenerica<ArbolGeneral<T>> cola = new ColaGenerica<ArbolGeneral<T>>();
 		cola.encolar(this);
 		cola.encolar(null);
-		int nivel = 1;
+		int nivel = 0;
 		while (!cola.esVacia()) {
 			ArbolGeneral<T> aux = cola.desencolar();
 			if (aux != null) {

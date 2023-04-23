@@ -25,18 +25,18 @@ public class TestRecorridosAG {
 		ArbolGeneral<Integer> arbolNivel2Seis = new ArbolGeneral<Integer>(47); // segundo hijo 37
 		ArbolGeneral<Integer> arbolNivel2Siete = new ArbolGeneral<Integer>(32); // primer hijo 14
 		
-		arbolNivel1Uno.getHijos().agregarFinal(arbolNivel2Uno);
-		arbolNivel1Uno.getHijos().agregarFinal(arbolNivel2Dos);
-		arbolNivel1Uno.getHijos().agregarFinal(arbolNivel2Tres);
+		arbolNivel1Uno.agregarHijo(arbolNivel2Uno);
+		arbolNivel1Uno.agregarHijo(arbolNivel2Dos);
+		arbolNivel1Uno.agregarHijo(arbolNivel2Tres);
 		//agrego al nodo 25: 16,7 y 18
-		arbolNivel1Dos.getHijos().agregarFinal(arbolNivel2Cinco);
-		arbolNivel1Dos.getHijos().agregarFinal(arbolNivel2Seis);
+		arbolNivel1Dos.agregarHijo(arbolNivel2Cinco);
+		arbolNivel1Dos.agregarHijo(arbolNivel2Seis);
 		//agrego al nodo 37: 15 y 47
-		arbolNivel1Tres.getHijos().agregarFinal(arbolNivel2Siete);
+		arbolNivel1Tres.agregarHijo(arbolNivel2Siete);
 		//agrego al nodo 14: 32
-		arbol.getHijos().agregarFinal(arbolNivel1Uno);
-		arbol.getHijos().agregarFinal(arbolNivel1Dos);
-		arbol.getHijos().agregarFinal(arbolNivel1Tres);
+		arbol.agregarHijo(arbolNivel1Uno);
+		arbol.agregarHijo(arbolNivel1Dos);
+		arbol.agregarHijo(arbolNivel1Tres);
 		//agrego a la raiz: 25,37 y 14
 		
 		int n=9;

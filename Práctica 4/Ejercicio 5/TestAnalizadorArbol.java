@@ -19,21 +19,21 @@ public class TestAnalizadorArbol {
 		ArbolGeneral<AreaEmpresa> dos8 = new ArbolGeneral<AreaEmpresa>(new AreaEmpresa(32));
 		ArbolGeneral<AreaEmpresa> dos9 = new ArbolGeneral<AreaEmpresa>(new AreaEmpresa(31)); // promedio 20
 
-		uno1.getHijos().agregarFinal(dos1);
-		uno1.getHijos().agregarFinal(dos2);
-		uno1.getHijos().agregarFinal(dos3);
+		uno1.agregarHijo(dos1);
+		uno1.agregarHijo(dos2);
+		uno1.agregarHijo(dos3);
 
-		uno2.getHijos().agregarFinal(dos4);
-		uno2.getHijos().agregarFinal(dos5);
-		uno2.getHijos().agregarFinal(dos6);
+		uno2.agregarHijo(dos4);
+		uno2.agregarHijo(dos5);
+		uno2.agregarHijo(dos6);
 
-		uno3.getHijos().agregarFinal(dos7);
-		uno3.getHijos().agregarFinal(dos8);
-		uno3.getHijos().agregarFinal(dos9);
+		uno3.agregarHijo(dos7);
+		uno3.agregarHijo(dos8);
+		uno3.agregarHijo(dos9);
 
-		raiz.getHijos().agregarFinal(uno1);
-		raiz.getHijos().agregarFinal(uno2);
-		raiz.getHijos().agregarFinal(uno3);
+		raiz.agregarHijo(uno1);
+		raiz.agregarHijo(uno2);
+		raiz.agregarHijo(uno3);
 
 		AnalizadorArbol analizador = new AnalizadorArbol();
 		System.out.println("El mayor promedio del arbol es " + analizador.devolverMaximoPromedio(raiz));
