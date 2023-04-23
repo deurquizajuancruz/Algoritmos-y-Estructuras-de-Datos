@@ -9,16 +9,18 @@ public class RedBinariaLlena {
 		this.arbol = arbol;
 	}
 
-	public int retardoReenvio(ArbolBinario<Integer> a) {
-		if (a.esHoja())
-			return a.getDato();
-		else {
-			int izquierda = 0, derecha = 0;
-			if (a.tieneHijoIzquierdo())
-				izquierda = retardoReenvio(a.getHijoIzquierdo());
-			if (a.tieneHijoDerecho())
-				derecha = retardoReenvio(a.getHijoDerecho());
-			return Math.max(izquierda, derecha) + a.getDato();
+	public int retardoReenvio() {
+		if (this.arbol.esHoja())
+			return this.arbol.getDato();
+		int izq=0,der=0;
+		if (this.arbol.tieneHijoIzquierdo()) {
+			RedBinariaLlena r = new RedBinariaLlena(this.arbol.getHijoIzquierdo());
+			izq+= r.retardoReenvio();
 		}
+		if (this.arbol.tieneHijoDerecho()) {
+			RedBinariaLlena r = new RedBinariaLlena(this.arbol.getHijoDerecho());
+			der+=r.retardoReenvio();
+		}
+		return this.arbol.getDato() + Math.max(izq, der);
 	}
 }

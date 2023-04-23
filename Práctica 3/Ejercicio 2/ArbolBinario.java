@@ -1,6 +1,7 @@
 package tp03.ejercicio1;
 
 import practica2.ColaGenerica;
+import tp02.ejercicio2.ListaGenerica;
 
 public class ArbolBinario<T> {
 	private T dato;
@@ -80,48 +81,44 @@ public class ArbolBinario<T> {
 	}
 
 	public int contarHojas() {
-		int derecha = 0, izquierda = 0;
 		if (this.esHoja())
 			return 1;
-		else {
-			if (this.tieneHijoIzquierdo())
-				izquierda = this.getHijoIzquierdo().contarHojas();
-			if (this.tieneHijoDerecho())
-				derecha = this.getHijoDerecho().contarHojas();
+		int hojas = 0;
+		if (this.tieneHijoDerecho()) {
+			hojas += this.getHijoDerecho().contarHojas();
 		}
-		return derecha + izquierda;
+		if (this.tieneHijoIzquierdo())
+			hojas += this.getHijoIzquierdo().contarHojas();
+		return hojas;
 	}
 
 	public ArbolBinario<T> espejo() {
-		if (this.esVacio())
-			return this;
-		else {
-			ArbolBinario<T> nodo = new ArbolBinario<T>(this.getDato());
-			if (this.tieneHijoIzquierdo())
-				nodo.agregarHijoDerecho(this.getHijoIzquierdo().espejo());
-			if (this.tieneHijoDerecho())
-				nodo.agregarHijoIzquierdo(this.getHijoDerecho().espejo());
-			return nodo;
-		}
+		ArbolBinario<T> nodo = new ArbolBinario<T>(this.getDato());
+		if (this.tieneHijoIzquierdo())
+			nodo.agregarHijoDerecho(this.getHijoIzquierdo().espejo());
+		if (this.tieneHijoDerecho()) 
+			nodo.agregarHijoIzquierdo(this.getHijoDerecho().espejo());
+		return nodo;
 	}
 
 	public void entreNiveles(int n, int m) {
 		ColaGenerica<ArbolBinario<T>> cola = new ColaGenerica<ArbolBinario<T>>();
+		int nivel = 0;
 		cola.encolar(this);
 		cola.encolar(null);
-		int nroNivel = 0;
-		while (!cola.esVacia() && (nroNivel <= m)) {
-			ArbolBinario<T> dato = cola.desencolar();
-			if (dato != null) {
-				if (nroNivel >= n)
-					System.out.println(dato.getDato());
-				if (dato.tieneHijoIzquierdo())
-					cola.encolar(dato.getHijoIzquierdo());
-				if (dato.tieneHijoDerecho())
-					cola.encolar(dato.getHijoDerecho());
-			} else if (!cola.esVacia()) {
-				cola.encolar(null);
-				nroNivel++;
+		while (!cola.esVacia()) {
+			ArbolBinario<T> aux = cola.desencolar();
+			if (aux != null) {
+				if ((nivel >= n) && (nivel <= m))
+					System.out.println(aux.getDato());
+				if (aux.tieneHijoIzquierdo())
+					cola.encolar(aux.getHijoIzquierdo());
+				if (aux.tieneHijoDerecho())
+					cola.encolar(aux.getHijoDerecho());
+			} else {
+				nivel++;
+				if (!cola.esVacia())
+					cola.encolar(null);
 			}
 		}
 	}

@@ -10,29 +10,33 @@ public class ContadorArbol {
 		this.datos = enteros;
 	}
 
-	public ListaEnlazadaGenerica<Integer> numerosPares() {
-		ListaEnlazadaGenerica<Integer> lista = new ListaEnlazadaGenerica<>();
-		inOrden(lista, this.datos);
-		//postOrden(lista, this.datos);
+	public ListaEnlazadaGenerica<Integer> numerosParesInOrden() {
+		ListaEnlazadaGenerica<Integer> lista = new ListaEnlazadaGenerica<Integer>();
+		numerosParesInOrdenAux(this.datos, lista);
 		return lista;
 	}
 
-	public void inOrden(ListaEnlazadaGenerica<Integer> lista, ArbolBinario<Integer> h) {
-		if (h.tieneHijoIzquierdo())
-			inOrden(lista, h.getHijoIzquierdo());
-		if (h.getDato() % 2 == 0)
-			lista.agregarFinal(h.getDato());
-		if (h.tieneHijoDerecho())
-			inOrden(lista, h.getHijoDerecho());
+	private void numerosParesInOrdenAux(ArbolBinario<Integer> arbol, ListaEnlazadaGenerica<Integer> lista) {
+		if (arbol.tieneHijoIzquierdo())
+			numerosParesInOrdenAux(arbol.getHijoIzquierdo(), lista);
+		if (arbol.getDato() % 2 == 0)
+			lista.agregarFinal(arbol.getDato());
+		if (arbol.tieneHijoDerecho())
+			numerosParesInOrdenAux(arbol.getHijoDerecho(), lista);
 	}
 
-	public void postOrden(ListaEnlazadaGenerica<Integer> lista, ArbolBinario<Integer> h) {
-		if (h.tieneHijoIzquierdo())
-			postOrden(lista,h.getHijoIzquierdo());
-		if (h.tieneHijoDerecho())
-			postOrden(lista, h.getHijoDerecho());
-		if (h.getDato() % 2 ==0)
-			lista.agregarFinal(h.getDato());
+	public ListaEnlazadaGenerica<Integer> numerosParesPostOrden() {
+		ListaEnlazadaGenerica<Integer> lista = new ListaEnlazadaGenerica<Integer>();
+		numerosParesPostOrdenAux(this.datos, lista);
+		return lista;
 	}
 
+	private void numerosParesPostOrdenAux(ArbolBinario<Integer> arbol, ListaEnlazadaGenerica<Integer> lista) {
+		if (arbol.tieneHijoIzquierdo())
+			numerosParesPostOrdenAux(arbol.getHijoIzquierdo(), lista);
+		if (arbol.tieneHijoDerecho())
+			numerosParesPostOrdenAux(arbol.getHijoDerecho(), lista);
+		if (arbol.getDato() % 2 == 0)
+			lista.agregarFinal(arbol.getDato());
+	}
 }

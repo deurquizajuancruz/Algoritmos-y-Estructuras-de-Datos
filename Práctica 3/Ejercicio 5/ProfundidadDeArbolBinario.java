@@ -11,29 +11,26 @@ public class ProfundidadDeArbolBinario {
 	}
 
 	public int sumaElementosProfundidad(int p) {
-		int suma = 0, nivel = 0;
 		ColaGenerica<ArbolBinario<Integer>> cola = new ColaGenerica<ArbolBinario<Integer>>();
-		ArbolBinario<Integer> datosCola;
-		boolean seguir = false;
 		cola.encolar(this.arbol);
 		cola.encolar(null);
-		while (!cola.esVacia() && !seguir) {
-			datosCola = cola.desencolar();
-			if (datosCola != null) {
+		int nivel = 0, suma = 0;
+		boolean procesado = false;
+		while (!cola.esVacia() && !procesado) {
+			ArbolBinario<Integer> aux = cola.desencolar();
+			if (aux != null) {
 				if (nivel == p)
-					suma += datosCola.getDato();
-				if (datosCola.tieneHijoDerecho())
-					cola.encolar(datosCola.getHijoDerecho());
-				if (datosCola.tieneHijoIzquierdo())
-					cola.encolar(datosCola.getHijoIzquierdo());
+					suma += aux.getDato();
+				if (aux.tieneHijoIzquierdo())
+					cola.encolar(aux.getHijoIzquierdo());
+				if (aux.tieneHijoDerecho())
+					cola.encolar(aux.getHijoDerecho());
 			} else {
-				if (!cola.esVacia()) {
+				nivel++;
+				if (nivel > p)
+					procesado = true;
+				if (!cola.esVacia())
 					cola.encolar(null);
-					nivel++;
-				}
-			}
-			if (nivel > p) {
-				seguir = true;
 			}
 		}
 		return suma;
