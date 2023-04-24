@@ -36,8 +36,8 @@ public class TestArbolBinario {
 		raiz.agregarHijoIzquierdo(uno1);
 		raiz.agregarHijoDerecho(uno2);
 		
-		//System.out.println("El arbol tiene "+raiz.contarHojas()+" hojas");
-		//raiz.entreNiveles(0, 4);
+		System.out.println("El arbol tiene "+raiz.contarHojas()+" hojas");
+		raiz.entreNiveles(0, 4);
 		ArbolBinario<Integer> espejo = raiz.espejo();
 		espejo.entreNiveles(0, 4);
 	}
