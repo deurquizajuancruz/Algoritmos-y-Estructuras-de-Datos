@@ -25,11 +25,11 @@ public class TestRedDeAguaPotable {
 		ArbolGeneral<Double> cuatro3 = new ArbolGeneral<Double>((double) 0);
 		ArbolGeneral<Double> cuatro4 = new ArbolGeneral<Double>((double) 0);
 
-		/*tres3.agregarHijo(cuatro1);
+		tres3.agregarHijo(cuatro1);
 		tres3.agregarHijo(cuatro2);
 		tres3.agregarHijo(cuatro3);
 		tres3.agregarHijo(cuatro4);
-		*/
+		
 		dos2.agregarHijo(tres1);
 		dos2.agregarHijo(tres2);
 		dos5.agregarHijo(tres3);
@@ -38,17 +38,13 @@ public class TestRedDeAguaPotable {
 		uno2.agregarHijo(dos1);
 		uno2.agregarHijo(dos2);
 		uno3.agregarHijo(dos3);
-		//uno3.agregarHijo(dos4);
-		//uno3.agregarHijo(dos5);
-		//uno3.getHijos().agregarFinal(dos6);
-		//uno3.getHijos().agregarFinal(dos7);
+		uno3.agregarHijo(dos4);
+		uno3.agregarHijo(dos5);
 
 		raiz.agregarHijo(uno1);
 		raiz.agregarHijo(uno2);
 		raiz.agregarHijo(uno3);
-		//raiz.getHijos().agregarFinal(uno4);
-		
 		RedDeAguaPotable caudal = new RedDeAguaPotable(raiz);
-		System.out.println("El caudal minimo es de " + caudal.minimoCaudal(500));
+		System.out.println("El caudal minimo es de " + caudal.minimoCaudal(1000));
 	}
 }
