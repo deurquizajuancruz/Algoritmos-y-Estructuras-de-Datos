@@ -85,10 +85,8 @@ public class RedDeAguaPotable {
 						cola.encolar(prox);
 					}
 				}
-			} else {
-				if (cola.esVacia())
-					cola.encolar(null);
-			}
+			} else if (cola.esVacia())
+				cola.encolar(null);
 		}
 		return Math.round(min*100.0)/100.0;
 	}
