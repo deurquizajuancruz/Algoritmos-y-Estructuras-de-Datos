@@ -12,9 +12,8 @@ public class RecorridosAG {
 	// parametro
 	public ListaGenerica<Integer> numerosImparesMayoresQuePreOrden(ArbolGeneral<Integer> a, Integer n) {
 		ListaEnlazadaGenerica<Integer> lista = new ListaEnlazadaGenerica<>();
-		if (a.getDato() > n && a.getDato() % 2 != 0) {
+		if (a.getDato() > n && a.getDato() % 2 != 0)
 			lista.agregarFinal(a.getDato());
-		}
 		if (a.tieneHijos()) {
 			ListaGenerica<ArbolGeneral<Integer>> listaHijos = a.getHijos();
 			listaHijos.comenzar();
@@ -23,9 +22,8 @@ public class RecorridosAG {
 				ListaGenerica<Integer> nuevaLista = numerosImparesMayoresQuePreOrden(proximo, n);
 				if (!nuevaLista.esVacia()) {
 					nuevaLista.comenzar();
-					while (!nuevaLista.fin()) {
+					while (!nuevaLista.fin())
 						lista.agregarFinal(nuevaLista.proximo());
-					}
 				}
 			}
 		}
@@ -41,15 +39,13 @@ public class RecorridosAG {
 
 	private void numerosImparesMayoresQuePreOrdenVersionDosAux(ArbolGeneral<Integer> a, ListaGenerica<Integer> lista,
 			Integer n) {
-		if (a.getDato() > n && a.getDato() % 2 != 0) {
+		if (a.getDato() > n && a.getDato() % 2 != 0)
 			lista.agregarFinal(a.getDato());
-		}
 		if (a.tieneHijos()) {
 			ListaGenerica<ArbolGeneral<Integer>> listaHijos = a.getHijos();
 			listaHijos.comenzar();
-			while (!listaHijos.fin()) {
+			while (!listaHijos.fin())
 				numerosImparesMayoresQuePreOrdenVersionDosAux(listaHijos.proximo(), lista, n);
-			}
 		}
 	}
 
@@ -67,12 +63,10 @@ public class RecorridosAG {
 			hijos.comenzar();
 			numerosImparesMayoresQueInOrdenAux(hijos.proximo(), lista, n);
 		}
-		if (a.getDato() > n && a.getDato() % 2 != 0) {
+		if (a.getDato() > n && a.getDato() % 2 != 0)
 			lista.agregarFinal(a.getDato());
-		}
-		while (!hijos.fin()) {
+		while (!hijos.fin())
 			numerosImparesMayoresQueInOrdenAux(hijos.proximo(), lista, n);
-		}
 	}
 
 	// POSTORDEN:
@@ -87,13 +81,11 @@ public class RecorridosAG {
 		ListaGenerica<ArbolGeneral<Integer>> listaHijos = a.getHijos();
 		if (!listaHijos.esVacia()) {
 			listaHijos.comenzar();
-			while (!listaHijos.fin()) {
+			while (!listaHijos.fin())
 				numerosImparesMayoresQuePostOrdenAux(listaHijos.proximo(), lista, n);
-			}
 		}
-		if (a.getDato() > n && a.getDato() % 2 != 0) {
+		if (a.getDato() > n && a.getDato() % 2 != 0)
 			lista.agregarFinal(a.getDato());
-		}
 	}
 
 	// POR NIVELES:
@@ -111,15 +103,13 @@ public class RecorridosAG {
 		while (!cola.esVacia()) {
 			ArbolGeneral<Integer> aux = cola.desencolar();
 			if (aux != null) {
-				if (aux.getDato() > n && aux.getDato() % 2 != 0) {
+				if (aux.getDato() > n && aux.getDato() % 2 != 0)
 					lista.agregarFinal(aux.getDato());
-				}
 				if (aux.tieneHijos()) {
 					ListaGenerica<ArbolGeneral<Integer>> listaHijos = aux.getHijos();
 					listaHijos.comenzar();
-					while (!listaHijos.fin()) {
+					while (!listaHijos.fin())
 						cola.encolar(listaHijos.proximo());
-					}
 				}
 			} else if (!cola.esVacia())
 				cola.encolar(null);

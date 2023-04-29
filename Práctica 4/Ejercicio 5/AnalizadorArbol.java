@@ -20,9 +20,8 @@ public class AnalizadorArbol {
 				if (aux.tieneHijos()) {
 					ListaGenerica<ArbolGeneral<AreaEmpresa>> listaHijos = aux.getHijos();
 					listaHijos.comenzar();
-					while (!listaHijos.fin()) {
+					while (!listaHijos.fin())
 						cola.encolar(listaHijos.proximo());
-					}
 				}
 			} else {
 				promedioNivel = promedioNivel / cantNodos;
@@ -30,9 +29,8 @@ public class AnalizadorArbol {
 					maxPromedio = (int) promedioNivel;
 				cantNodos = 0;
 				promedioNivel = 0;
-				if (!cola.esVacia()) {
+				if (!cola.esVacia())
 					cola.encolar(null);
-				}
 			}
 		}
 		return maxPromedio;

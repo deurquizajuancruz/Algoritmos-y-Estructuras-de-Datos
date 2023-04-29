@@ -104,9 +104,10 @@ public class ArbolGeneral<T> {
 						cola.encolar(listaHijos.proximo());
 					}
 				}
-			} else if (!cola.esVacia()) {
-				cola.encolar(null);
+			} else {
 				nivel++;
+				if (!cola.esVacia())
+					cola.encolar(null);
 			}
 		}
 		return -1;
@@ -124,17 +125,15 @@ public class ArbolGeneral<T> {
 				if (aux.tieneHijos()) {
 					ListaGenerica<ArbolGeneral<T>> listaHijos = aux.getHijos();
 					listaHijos.comenzar();
-					while (!listaHijos.fin()) {
+					while (!listaHijos.fin())
 						cola.encolar(listaHijos.proximo());
-					}
 				}
 			} else { // si es null = se termino el nivel
 				if (cantNodos > max)
 					max = cantNodos;
 				cantNodos = 0;
-				if (!cola.esVacia()) {
+				if (!cola.esVacia())
 					cola.encolar(null);
-				}
 			}
 		}
 		return max;
@@ -147,9 +146,8 @@ public class ArbolGeneral<T> {
 		if (this.tieneHijos()) {
 			ListaGenerica<ArbolGeneral<T>> listaHijos = this.getHijos();
 			listaHijos.comenzar();
-			while ((!listaHijos.fin()) && (aux == null)) {
+			while ((!listaHijos.fin()) && (aux == null))
 				aux = listaHijos.proximo().buscarNodo(a);
-			}
 		}
 		return aux;
 	}
@@ -157,9 +155,8 @@ public class ArbolGeneral<T> {
 	public Boolean esAncestro(T a, T b) {
 		ArbolGeneral<T> nodoA = buscarNodo(a);
 		ArbolGeneral<T> nodoB = null;
-		if (nodoA != null) {
+		if (nodoA != null)
 			nodoB = nodoA.buscarNodo(b);
-		}
 		return nodoB != null;
 	}
 
